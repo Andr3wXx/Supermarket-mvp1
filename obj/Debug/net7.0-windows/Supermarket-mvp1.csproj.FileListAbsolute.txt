@@ -41,3 +41,4 @@ C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket-mvp1.pdb
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket-mvp1.genruntimeconfig.cache
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\ref\Supermarket-mvp1.dll
+C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket_mvp1.Views.MainView.resources
