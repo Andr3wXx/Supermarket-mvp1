@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Supermarket_mvp1.Views;
 using Supermarket_mvp1.Models;
-using System.ComponentModel;
+using Supermarket_mvp1._Repositories;
 
 namespace Supermarket_mvp1.Presenters
 {
@@ -16,7 +16,9 @@ namespace Supermarket_mvp1.Presenters
         private BindingSource payModeBindingSource;
         private IEnumerable<PayModeModel> payModeList;
 
+#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public PayModePresenter(IPayModeView view, IPayModeRepository repository)
+#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         {
             this.payModeBindingSource = new BindingSource();
 
@@ -34,7 +36,7 @@ namespace Supermarket_mvp1.Presenters
 
             loadAllPayModeList();
 
-            this.view.show();
+            this.view.Show();
 
         }
 
@@ -61,12 +63,22 @@ namespace Supermarket_mvp1.Presenters
 
         private void LoadSelectPayModeToEdit(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //Se obtiene el objeto de datadridview que se encuentra seleccionado 
+            var payMode = (PayModeModel)payModeBindingSource.Current;
+
+            //Se cambia el contenido de las cajas de texto por el objeto recuperado del datadridview
+            view.PayModeId = payMode.Id.ToString();
+            view.PayModeName = payMode.Name;
+            view.PayModeObservation = payMode.Observation;
+
+            // Se establece el modo como edicion
+            view.IsEdit = true;
         }
 
         private void AddNewPayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //MessageBox.Show("Hizo Clic en el boton nuevo");
+            view.IsEdit = false;
         }
 
         private void SearchPayMode(object? sender, EventArgs e)

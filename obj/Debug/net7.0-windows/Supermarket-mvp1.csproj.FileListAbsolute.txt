@@ -29,6 +29,7 @@ C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\bin\Debug
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket-mvp1.csproj.AssemblyReference.cache
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket_mvp1.Properties.Resources.resources
+C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket_mvp1.Views.MainView.resources
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket_mvp1.Views.PayModeView.resources
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket-mvp1.csproj.GenerateResource.cache
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket-mvp1.GeneratedMSBuildEditorConfig.editorconfig
@@ -41,4 +42,3 @@ C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket-mvp1.pdb
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket-mvp1.genruntimeconfig.cache
 C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\ref\Supermarket-mvp1.dll
-C:\Users\practecnologia\source\repos\Supermarket-mvp1\Supermarket-mvp1\obj\Debug\net7.0-windows\Supermarket_mvp1.Views.MainView.resources

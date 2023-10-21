@@ -23,6 +23,8 @@ namespace Supermarket_mvp1.Views
             AssociatedAndRaiseViewEvents();
 
             tabControl1.TabPages.Remove(tabPagePayModeDetail);
+
+            BtnClose.Click += delegate { this.Close(); };
         }
 
         private void AssociatedAndRaiseViewEvents()
@@ -35,6 +37,56 @@ namespace Supermarket_mvp1.Views
                 {
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
+            };
+
+            BtnNew.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPagePayModeList);
+                tabControl1.TabPages.Add(tabPagePayModeDetail);
+                tabPagePayModeDetail.Text = "Add New Pay Mode";
+            };
+
+            BtnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPagePayModeList);
+                tabControl1.TabPages.Add(tabPagePayModeDetail);
+                tabPagePayModeDetail.Text = "Edit Pay Mode"; //Cambia el titulo de la pestaña
+
+            };
+            BtnDelete.Click += delegate
+            {
+                var result = MessageBox.Show(
+                    "Are you sure you want to delete the selected Pay Mode",
+                    "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+
+            };
+
+
+            BtnSave.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)//Si grabar fue exitoso
+                {
+                    tabControl1.TabPages.Remove(tabPagePayModeDetail);
+                    tabControl1.TabPages.Add(tabPagePayModeList);
+                }
+                MessageBox.Show(Message);
+            };
+            BtnCancel.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabPagePayModeDetail);
+                tabControl1.TabPages.Add(tabPagePayModeList);
             };
         }
 
@@ -61,7 +113,7 @@ namespace Supermarket_mvp1.Views
         public bool IsEdit
         {
             get { return isEdit; }
-            set { IsEdit = value; }
+            set { isEdit = value; }
         }
         public bool IsSuccessful
         {
@@ -85,14 +137,16 @@ namespace Supermarket_mvp1.Views
         {
             DgPayMode.DataSource = payModeList;
         }
+
+
         private static PayModeView instance;
 
-        public static PayModeView GetInstance(Form parentContrainer)
+        public static PayModeView GetInstance(Form parentContainer) //GetInstance(Form parentContrainer)
         {
             if (instance == null || instance.IsDisposed)
             {
                 instance = new PayModeView();
-                instance.MdiParent = parentContrainer;
+                instance.MdiParent = parentContainer;
 
                 instance.FormBorderStyle = FormBorderStyle.None;
                 instance.Dock = DockStyle.Fill;
@@ -107,16 +161,10 @@ namespace Supermarket_mvp1.Views
             }
             return instance;
         }
-        public void show()
-        {
-            throw new NotImplementedException();
-        }
 
         private void tabPagePayModeDetail_Click(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }

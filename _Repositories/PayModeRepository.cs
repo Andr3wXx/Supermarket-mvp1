@@ -47,6 +47,7 @@ namespace Supermarket_mvp1._Repositories
                     {
                         var payModeModel = new PayModeModel();
                         payModeModel.Id = (int)reader["Pay_Mode_Id"];
+
                         payModeModel.Name = reader["Pay_Mode_Name"].ToString();
                         payModeModel.Observation = reader["Pay_Mode_Observation"].ToString();
                         payModelList.Add(payModeModel);
