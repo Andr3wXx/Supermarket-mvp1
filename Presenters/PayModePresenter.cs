@@ -12,7 +12,8 @@ namespace Supermarket_mvp1.Presenters
     internal class PayModePresenter
     {
         private IPayModeView view;
-        
+        private IPayModeRepository repository;
+        private BindingSource payModeBindingSource;
         private IEnumerable<PayModeModel> payModeList;
 
         public PayModePresenter(IPayModeView view, IPayModeRepository repository)
@@ -71,10 +72,15 @@ namespace Supermarket_mvp1.Presenters
         private void SearchPayMode(object? sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
-            if(emptyValue)
+            if (emptyValue == false)
             {
                 payModeList = repository.GetByValue(this.view.SearchValue);
             }
+            else
+            {
+                payModeList = repository.GetAll();
+            }
+            payModeBindingSource.DataSource = payModeList;
         }
 
         private void View_CancelEvent(object? sender, EventArgs e)
@@ -82,8 +88,6 @@ namespace Supermarket_mvp1.Presenters
             throw new NotImplementedException();
         }
 
-        private IPayModeRepository repository;
-        private BindingSource payModeBindingSource;
-        private IEnumerable<PayModeModel> payModeModels;
+        
     }
 }
