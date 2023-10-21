@@ -121,46 +121,50 @@
             // BtnClose
             // 
             BtnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnClose.BackgroundImage = Properties.Resources.cerrar;
+            BtnClose.BackColor = SystemColors.Control;
             BtnClose.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnClose.Image = Properties.Resources.cerrar;
             BtnClose.Location = new Point(642, 233);
             BtnClose.Name = "BtnClose";
             BtnClose.Size = new Size(115, 42);
             BtnClose.TabIndex = 7;
-            BtnClose.UseVisualStyleBackColor = true;
+            BtnClose.UseVisualStyleBackColor = false;
             // 
             // BtnDelete
             // 
             BtnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnDelete.BackgroundImage = Properties.Resources.delete;
+            BtnDelete.BackColor = SystemColors.Control;
             BtnDelete.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnDelete.Image = Properties.Resources.delete;
             BtnDelete.Location = new Point(642, 176);
             BtnDelete.Name = "BtnDelete";
             BtnDelete.Size = new Size(115, 42);
             BtnDelete.TabIndex = 6;
-            BtnDelete.UseVisualStyleBackColor = true;
+            BtnDelete.UseVisualStyleBackColor = false;
             // 
             // BtnEdit
             // 
             BtnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnEdit.BackgroundImage = Properties.Resources.edit;
+            BtnEdit.BackColor = SystemColors.Control;
             BtnEdit.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEdit.Image = Properties.Resources.edit;
             BtnEdit.Location = new Point(642, 118);
             BtnEdit.Name = "BtnEdit";
             BtnEdit.Size = new Size(115, 42);
             BtnEdit.TabIndex = 5;
-            BtnEdit.UseVisualStyleBackColor = true;
+            BtnEdit.UseVisualStyleBackColor = false;
             // 
             // BtnNew
             // 
             BtnNew.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnNew.BackgroundImage = Properties.Resources._new;
+            BtnNew.BackColor = SystemColors.Control;
             BtnNew.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNew.Image = Properties.Resources._new;
             BtnNew.Location = new Point(642, 61);
             BtnNew.Name = "BtnNew";
             BtnNew.Size = new Size(115, 42);
             BtnNew.TabIndex = 4;
-            BtnNew.UseVisualStyleBackColor = true;
+            BtnNew.UseVisualStyleBackColor = false;
             // 
             // DgPayMode
             // 
