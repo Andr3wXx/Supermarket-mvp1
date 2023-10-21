@@ -85,7 +85,28 @@ namespace Supermarket_mvp1.Views
         {
             DgPayMode.DataSource = payModeList;
         }
+        private static PayModeView instance;
 
+        public static PayModeView GetInstance(Form parentContrainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new PayModeView();
+                instance.MdiParent = parentContrainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
         public void show()
         {
             throw new NotImplementedException();
@@ -96,6 +117,6 @@ namespace Supermarket_mvp1.Views
 
         }
 
-        
+
     }
 }
