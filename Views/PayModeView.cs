@@ -33,12 +33,15 @@ namespace Supermarket_mvp1.Views
 
             TxtSearch.KeyDown += (s, e) =>
             {
+
+                //Buscar, llame al metodo SearchEvent cuando se haga clic en el boton BtnSearch
                 if (e.KeyCode == Keys.Enter)
                 {
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
 
+            //Agregar, llame al evento AddNewEvent cuando se haga clic en el boton BtnNew
             BtnNew.Click += delegate
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);

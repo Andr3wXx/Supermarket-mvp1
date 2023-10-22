@@ -16,9 +16,7 @@ namespace Supermarket_mvp1.Presenters
         private BindingSource payModeBindingSource;
         private IEnumerable<PayModeModel> payModeList;
 
-#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         public PayModePresenter(IPayModeView view, IPayModeRepository repository)
-#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
         {
             this.payModeBindingSource = new BindingSource();
 
@@ -48,17 +46,68 @@ namespace Supermarket_mvp1.Presenters
                 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
         private void SavePayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //Se crea un objeto de la clase PayModeModel y se asigna los datos de las caja de texto de la vista
+            var payMode = new PayModeModel();
+            payMode.Id = Convert .ToInt32(view.PayModeId);
+            payMode.Name = view.PayModeName;
+            payMode.Observation = view.PayModeObservation;
+
+            try
+            {
+                new Common.ModelDataValidation().Validate(payMode);
+                if(view.IsEdit)
+                {
+                    repository.Edit(payMode);
+                    view.Message = "PayMode edited successfuly";
+                }
+                else
+                {
+                    repository.Add(payMode);
+                    view.Message = "PayMode added successfuly";
+                }
+                view.IsSuccessful = true;
+                loadAllPayModeList();
+                CleanViewFields();
+            }
+            catch (Exception ex)
+            {
+                //Si ocurre una excepcion se confiigura el IsSuccessfull en flase  y la propiedad Message de 
+                // de la vista se asigna el mensaje de la excepcion 
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
+        }
+
+        private void CleanViewFields()
+        {
+            view.PayModeId = "0";
+            view.PayModeName = "";
+            view.PayModeObservation = "";
         }
 
         private void DeleteSelectedPayMode(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                //Se recupera el objeto de la fila seleccionada del dataviewgrid
+                var payMode = (PayModeModel)payModeBindingSource.Current;
+
+                //Se invoca el mertodo Delete del repositorio pasandole el ID del Pay Mode
+                repository.Delete(payMode.Id);
+                view.IsSuccessful = true;
+                view.Message = "Pay Mode deleted successfully";
+                loadAllPayModeList();
+            }
+            catch(Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred, could not delete pay mode";
+            }
         }
 
         private void LoadSelectPayModeToEdit(object? sender, EventArgs e)
