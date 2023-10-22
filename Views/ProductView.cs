@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -61,6 +62,22 @@ namespace Supermarket_mvp1.Views
         public ProductView()
         {
             InitializeComponent();
+            AssociateAndRaiseViewEvents();
+
+            tabControl1.TabPages.Remove(tabPagePorductsModeList);
+        }
+
+        private void AssociateAndRaiseViewEvents()
+        {
+            BtnSearchP.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+
+            TxtSearchS.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
         }
 
         public event EventHandler SearchEvent;
