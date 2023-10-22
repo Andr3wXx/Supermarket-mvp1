@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Supermarket_mvp1._Repositories
 {
-    internal class BaseRepository
+    internal class  BaseRepository
     {
         protected string connectionString;
     }

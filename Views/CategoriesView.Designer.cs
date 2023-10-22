@@ -47,7 +47,7 @@
             BtnEditC = new Button();
             BtnNewC = new Button();
             DgCategoriesC = new DataGridView();
-            BtnSearchC = new Button();
+            BtnSearchP = new Button();
             TxtSearchsC = new TextBox();
             lbSearch = new Label();
             panel1.SuspendLayout();
@@ -104,7 +104,7 @@
             tabCategoriesList.Controls.Add(BtnEditC);
             tabCategoriesList.Controls.Add(BtnNewC);
             tabCategoriesList.Controls.Add(DgCategoriesC);
-            tabCategoriesList.Controls.Add(BtnSearchC);
+            tabCategoriesList.Controls.Add(BtnSearchP);
             tabCategoriesList.Controls.Add(TxtSearchsC);
             tabCategoriesList.Controls.Add(lbSearch);
             tabCategoriesList.Location = new Point(4, 24);
@@ -255,15 +255,15 @@
             DgCategoriesC.Size = new Size(594, 241);
             DgCategoriesC.TabIndex = 24;
             // 
-            // BtnSearchC
+            // BtnSearchP
             // 
-            BtnSearchC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnSearchC.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnSearchC.Location = new Point(563, 18);
-            BtnSearchC.Name = "BtnSearchC";
-            BtnSearchC.Size = new Size(50, 46);
-            BtnSearchC.TabIndex = 23;
-            BtnSearchC.UseVisualStyleBackColor = true;
+            BtnSearchP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnSearchP.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnSearchP.Location = new Point(563, 18);
+            BtnSearchP.Name = "BtnSearchP";
+            BtnSearchP.Size = new Size(50, 46);
+            BtnSearchP.TabIndex = 23;
+            BtnSearchP.UseVisualStyleBackColor = true;
             // 
             // TxtSearchsC
             // 
@@ -318,7 +318,7 @@
         private Button BtnEditC;
         private Button BtnNewC;
         private DataGridView DgCategoriesC;
-        private Button BtnSearchC;
+        private Button BtnSearchP;
         private TextBox TxtSearchsC;
         private Label lbSearch;
         private Button BtnCancelC;

@@ -19,9 +19,79 @@ namespace Supermarket_mvp1.Views
         public CategoriesView()
         {
             InitializeComponent();
+            AssociateAndRaiseViewEvents();
+
+            tabControl1.TabPages.Remove(tabCategoriesDetail);
+
+            BtnCloseC.Click += delegate { this.Close(); };
         }
 
-        public string CategorieId
+        private void AssociateAndRaiseViewEvents()
+        {
+            BtnSearchP.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+
+            TxtSearchsC.KeyDown += (s, e) =>
+            {
+
+                //Buscar, llame al metodo SearchEvent cuando se haga clic en el boton BtnSearch
+                if (e.KeyCode == Keys.Enter)
+                {
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+                }
+            };
+
+            BtnNewC.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabCategoriesList);
+                tabControl1.TabPages.Add(tabCategoriesDetail);
+                tabCategoriesDetail.Text = "Add New Pay Mode";
+            };
+
+            BtnEditC.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabCategoriesList);
+                tabControl1.TabPages.Add(tabCategoriesDetail);
+                tabCategoriesDetail.Text = "Edit Pay Mode"; //Cambia el titulo de la pestaña
+
+            };
+            BtnDeleteC.Click += delegate
+            {
+                var result = MessageBox.Show(
+                    "Are you sure you want to delete the selected Pay Mode",
+                    "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+
+            };
+
+
+            BtnSaveC.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)//Si grabar fue exitoso
+                {
+                    tabControl1.TabPages.Remove(tabCategoriesDetail);
+                    tabControl1.TabPages.Add(tabCategoriesList);
+                }
+                MessageBox.Show(Message);
+            };
+            BtnCancelC.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+
+                tabControl1.TabPages.Remove(tabCategoriesDetail);
+                tabControl1.TabPages.Add(tabCategoriesList);
+            };
+        }
+
+            public string CategorieId
         {
             get { return TxtCategoriesId.Text; }
             set { TxtCategoriesId.Text = value; }
@@ -68,5 +138,10 @@ namespace Supermarket_mvp1.Views
         {
             DgCategoriesC.DataSource = categorieList;
         }
+        
     }
+
 }
+
+        
+    

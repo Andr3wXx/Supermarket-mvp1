@@ -169,5 +169,10 @@ namespace Supermarket_mvp1.Views
         private void BtnSearchP_Click(object sender, EventArgs e)
         {
         }
+
+        public void SetProductListBildingSource(BindingSource productList)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
