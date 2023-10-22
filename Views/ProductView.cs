@@ -58,13 +58,37 @@ namespace Supermarket_mvp1.Views
             get { return message; }
             set { message = value; }
         }
+        string IProductView { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        private static ProductView instance;
+
+        public static ProductView GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ProductView();
+                instance.MdiParent = parentContainer;
+
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
 
         public ProductView()
-        {
+        {   
             InitializeComponent();
             AssociateAndRaiseViewEvents();
 
-            tabControl1.TabPages.Remove(tabPagePorductsModeList);
+            tabProducts.TabPages.Remove(tabPagePorductsModeList);
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -96,7 +120,7 @@ namespace Supermarket_mvp1.Views
         {
 
         }
-
+            
         public void SetProductListBildingSource(BindingSource productList)
         {
             DgProduct.DataSource = productList;

@@ -28,6 +28,13 @@ namespace Supermarket_mvp1.Presenters
             IPayModeRepository repository = new PayModeRepository(sqlConnectionString);
             new PayModePresenter(view, repository);
         }
-      
+        private void showProductView(object? sender, EventArgs e)
+        {
+            IProductView view =  ProductView.GetInstance((MainView)mainView);
+            IProductRepository repository = new ProductRepository(sqlConnectionString);
+            new ProductPresenter(view, repository);
+
+        }
+
     }
 }
