@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -20,7 +21,7 @@ namespace Supermarket_mvp1.Views
         public string ProductId
         {
             get { return TxtProductId.Text; }
-            set { TxtProductId.Text = value;}
+            set { TxtProductId.Text = value; }
         }
         string IProductView.ProductName
         {
@@ -35,12 +36,12 @@ namespace Supermarket_mvp1.Views
         public string ProductStock
         {
             get { return TxtStock.Text; }
-            set { TxtStock.Text = value;}
+            set { TxtStock.Text = value; }
         }
         public string SearchValue
         {
             get { return TxtSearchS.Text; }
-            set { TxtSearchS.Text = value;}
+            set { TxtSearchS.Text = value; }
         }
         public bool IsEdit
         {
@@ -51,7 +52,7 @@ namespace Supermarket_mvp1.Views
         public bool IsSuccessful
         {
             get { return isSuccessful; }
-            set { isSuccessful = value;}
+            set { isSuccessful = value; }
         }
         public string Message
         {
@@ -84,11 +85,13 @@ namespace Supermarket_mvp1.Views
         }
 
         public ProductView()
-        {   
+        {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
 
             tabProducts.TabPages.Remove(tabPagePorductsModeList);
+
+            BtnCloseP.Click += delegate { this.Close(); };
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -102,6 +105,53 @@ namespace Supermarket_mvp1.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+
+            BtnNewP.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                tabProducts.TabPages.Add(tabPageProductsDetail);
+                tabProducts.TabPages.Remove(tabPagePorductsModeList);
+                tabPageProductsDetail.Text = "Add New Product";
+            };
+            BtnEditP.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabProducts.TabPages.Remove(tabPagePorductsModeList);
+                tabProducts.TabPages.Add(tabPageProductsDetail);
+                tabPageProductsDetail.Text = "Edit Product";
+            };
+
+            BtnDeleteP.Click += delegate
+            {
+                var result = MessageBox.Show(
+                "Are you sure you want to delete the selected Product",
+                "Warning",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+
+            };
+
+            BtnSaveP.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)
+                {
+                    tabProducts.TabPages.Remove(tabPageProductsDetail);
+                    tabProducts.TabPages.Add(tabPagePorductsModeList);
+                }
+                MessageBox.Show(Message);
+            };
+
+            BtnCancelP.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                tabProducts.TabPages.Remove(tabPageProductsDetail);
+                tabProducts.TabPages.Add(tabPageProductsDetail);
+            };
         }
 
         public event EventHandler SearchEvent;
@@ -111,19 +161,13 @@ namespace Supermarket_mvp1.Views
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
-        private void ProductView_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
 
         }
-            
-        public void SetProductListBildingSource(BindingSource productList)
+
+        private void BtnSearchP_Click(object sender, EventArgs e)
         {
-            DgProduct.DataSource = productList;
         }
     }
 }

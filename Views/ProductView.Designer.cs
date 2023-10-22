@@ -34,23 +34,25 @@
             label1 = new Label();
             tabProducts = new TabControl();
             tabPagePorductsModeList = new TabPage();
-            BtnClose = new Button();
-            BtnDelete = new Button();
-            BtnEdit = new Button();
-            BtnNew = new Button();
+            BtnCloseP = new Button();
+            BtnDeleteP = new Button();
+            BtnEditP = new Button();
+            BtnNewP = new Button();
             DgProduct = new DataGridView();
             BtnSearchP = new Button();
             TxtSearchS = new TextBox();
             label2 = new Label();
             tabPageProductsDetail = new TabPage();
-            label3 = new Label();
-            TxtProductId = new TextBox();
-            label4 = new Label();
-            TxtProductName = new TextBox();
-            label5 = new Label();
-            TxtPrice = new TextBox();
-            label6 = new Label();
             TxtStock = new TextBox();
+            label6 = new Label();
+            TxtPrice = new TextBox();
+            label5 = new Label();
+            TxtProductName = new TextBox();
+            label4 = new Label();
+            TxtProductId = new TextBox();
+            label3 = new Label();
+            BtnSaveP = new Button();
+            BtnCancelP = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabProducts.SuspendLayout();
@@ -91,9 +93,9 @@
             // 
             // tabProducts
             // 
+            tabProducts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tabProducts.Controls.Add(tabPagePorductsModeList);
             tabProducts.Controls.Add(tabPageProductsDetail);
-            tabProducts.Dock = DockStyle.Fill;
             tabProducts.Location = new Point(0, 100);
             tabProducts.Name = "tabProducts";
             tabProducts.SelectedIndex = 0;
@@ -102,10 +104,10 @@
             // 
             // tabPagePorductsModeList
             // 
-            tabPagePorductsModeList.Controls.Add(BtnClose);
-            tabPagePorductsModeList.Controls.Add(BtnDelete);
-            tabPagePorductsModeList.Controls.Add(BtnEdit);
-            tabPagePorductsModeList.Controls.Add(BtnNew);
+            tabPagePorductsModeList.Controls.Add(BtnCloseP);
+            tabPagePorductsModeList.Controls.Add(BtnDeleteP);
+            tabPagePorductsModeList.Controls.Add(BtnEditP);
+            tabPagePorductsModeList.Controls.Add(BtnNewP);
             tabPagePorductsModeList.Controls.Add(DgProduct);
             tabPagePorductsModeList.Controls.Add(BtnSearchP);
             tabPagePorductsModeList.Controls.Add(TxtSearchS);
@@ -118,47 +120,52 @@
             tabPagePorductsModeList.Text = "Products List";
             tabPagePorductsModeList.UseVisualStyleBackColor = true;
             // 
-            // BtnClose
+            // BtnCloseP
             // 
-            BtnClose.Image = Properties.Resources.cerrar;
-            BtnClose.Location = new Point(636, 269);
-            BtnClose.Name = "BtnClose";
-            BtnClose.Size = new Size(133, 45);
-            BtnClose.TabIndex = 7;
-            BtnClose.UseVisualStyleBackColor = true;
+            BtnCloseP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnCloseP.Image = Properties.Resources.cerrar;
+            BtnCloseP.Location = new Point(636, 269);
+            BtnCloseP.Name = "BtnCloseP";
+            BtnCloseP.Size = new Size(133, 45);
+            BtnCloseP.TabIndex = 7;
+            BtnCloseP.UseVisualStyleBackColor = true;
             // 
-            // BtnDelete
+            // BtnDeleteP
             // 
-            BtnDelete.Image = Properties.Resources.delete;
-            BtnDelete.Location = new Point(636, 209);
-            BtnDelete.Name = "BtnDelete";
-            BtnDelete.Size = new Size(133, 45);
-            BtnDelete.TabIndex = 6;
-            BtnDelete.UseVisualStyleBackColor = true;
-            BtnDelete.Click += button3_Click;
+            BtnDeleteP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnDeleteP.Image = Properties.Resources.delete;
+            BtnDeleteP.Location = new Point(636, 209);
+            BtnDeleteP.Name = "BtnDeleteP";
+            BtnDeleteP.Size = new Size(133, 45);
+            BtnDeleteP.TabIndex = 6;
+            BtnDeleteP.UseVisualStyleBackColor = true;
+            BtnDeleteP.Click += button3_Click;
             // 
-            // BtnEdit
+            // BtnEditP
             // 
-            BtnEdit.Image = Properties.Resources.edit;
-            BtnEdit.Location = new Point(636, 146);
-            BtnEdit.Name = "BtnEdit";
-            BtnEdit.Size = new Size(133, 45);
-            BtnEdit.TabIndex = 5;
-            BtnEdit.UseVisualStyleBackColor = true;
+            BtnEditP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnEditP.Image = Properties.Resources.edit;
+            BtnEditP.Location = new Point(636, 146);
+            BtnEditP.Name = "BtnEditP";
+            BtnEditP.Size = new Size(133, 45);
+            BtnEditP.TabIndex = 5;
+            BtnEditP.UseVisualStyleBackColor = true;
             // 
-            // BtnNew
+            // BtnNewP
             // 
-            BtnNew.Image = Properties.Resources._new;
-            BtnNew.Location = new Point(636, 81);
-            BtnNew.Name = "BtnNew";
-            BtnNew.Size = new Size(133, 45);
-            BtnNew.TabIndex = 4;
-            BtnNew.UseVisualStyleBackColor = true;
+            BtnNewP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnNewP.Image = Properties.Resources._new;
+            BtnNewP.Location = new Point(636, 81);
+            BtnNewP.Name = "BtnNewP";
+            BtnNewP.Size = new Size(133, 45);
+            BtnNewP.TabIndex = 4;
+            BtnNewP.UseVisualStyleBackColor = true;
             // 
             // DgProduct
             // 
             DgProduct.AllowUserToAddRows = false;
             DgProduct.AllowUserToDeleteRows = false;
+            DgProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgProduct.Location = new Point(13, 81);
             DgProduct.Name = "DgProduct";
@@ -169,6 +176,7 @@
             // 
             // BtnSearchP
             // 
+            BtnSearchP.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnSearchP.BackgroundImage = Properties.Resources.search;
             BtnSearchP.BackgroundImageLayout = ImageLayout.Zoom;
             BtnSearchP.Location = new Point(556, 32);
@@ -176,6 +184,7 @@
             BtnSearchP.Size = new Size(48, 43);
             BtnSearchP.TabIndex = 2;
             BtnSearchP.UseVisualStyleBackColor = true;
+            BtnSearchP.Click += BtnSearchP_Click;
             // 
             // TxtSearchS
             // 
@@ -198,6 +207,8 @@
             // 
             // tabPageProductsDetail
             // 
+            tabPageProductsDetail.Controls.Add(BtnCancelP);
+            tabPageProductsDetail.Controls.Add(BtnSaveP);
             tabPageProductsDetail.Controls.Add(TxtStock);
             tabPageProductsDetail.Controls.Add(label6);
             tabPageProductsDetail.Controls.Add(TxtPrice);
@@ -214,60 +225,14 @@
             tabPageProductsDetail.Text = "Products Detail";
             tabPageProductsDetail.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // TxtStock
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(13, 14);
-            label3.Name = "label3";
-            label3.Size = new Size(72, 17);
-            label3.TabIndex = 0;
-            label3.Text = "Product Id";
-            // 
-            // TxtProductId
-            // 
-            TxtProductId.Location = new Point(13, 34);
-            TxtProductId.Name = "TxtProductId";
-            TxtProductId.Size = new Size(179, 23);
-            TxtProductId.TabIndex = 1;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(13, 81);
-            label4.Name = "label4";
-            label4.Size = new Size(96, 17);
-            label4.TabIndex = 2;
-            label4.Text = "Product Name";
-            // 
-            // TxtProductName
-            // 
-            TxtProductName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            TxtProductName.Location = new Point(13, 101);
-            TxtProductName.Name = "TxtProductName";
-            TxtProductName.PlaceholderText = "Product Name";
-            TxtProductName.Size = new Size(310, 23);
-            TxtProductName.TabIndex = 3;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(13, 152);
-            label5.Name = "label5";
-            label5.Size = new Size(90, 17);
-            label5.TabIndex = 4;
-            label5.Text = "Price Product";
-            // 
-            // TxtPrice
-            // 
-            TxtPrice.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            TxtPrice.Location = new Point(13, 172);
-            TxtPrice.Name = "TxtPrice";
-            TxtPrice.PlaceholderText = "Price Product";
-            TxtPrice.Size = new Size(310, 23);
-            TxtPrice.TabIndex = 5;
+            TxtStock.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            TxtStock.Location = new Point(13, 230);
+            TxtStock.Name = "TxtStock";
+            TxtStock.PlaceholderText = "Stock Product";
+            TxtStock.Size = new Size(310, 23);
+            TxtStock.TabIndex = 7;
             // 
             // label6
             // 
@@ -279,14 +244,76 @@
             label6.TabIndex = 6;
             label6.Text = "Stock Product";
             // 
-            // TxtStock
+            // TxtPrice
             // 
-            TxtStock.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            TxtStock.Location = new Point(13, 230);
-            TxtStock.Name = "TxtStock";
-            TxtStock.PlaceholderText = "Stock Product";
-            TxtStock.Size = new Size(310, 23);
-            TxtStock.TabIndex = 7;
+            TxtPrice.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            TxtPrice.Location = new Point(13, 172);
+            TxtPrice.Name = "TxtPrice";
+            TxtPrice.PlaceholderText = "Price Product";
+            TxtPrice.Size = new Size(310, 23);
+            TxtPrice.TabIndex = 5;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(13, 152);
+            label5.Name = "label5";
+            label5.Size = new Size(90, 17);
+            label5.TabIndex = 4;
+            label5.Text = "Price Product";
+            // 
+            // TxtProductName
+            // 
+            TxtProductName.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            TxtProductName.Location = new Point(13, 101);
+            TxtProductName.Name = "TxtProductName";
+            TxtProductName.PlaceholderText = "Product Name";
+            TxtProductName.Size = new Size(310, 23);
+            TxtProductName.TabIndex = 3;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(13, 81);
+            label4.Name = "label4";
+            label4.Size = new Size(96, 17);
+            label4.TabIndex = 2;
+            label4.Text = "Product Name";
+            // 
+            // TxtProductId
+            // 
+            TxtProductId.Location = new Point(13, 34);
+            TxtProductId.Name = "TxtProductId";
+            TxtProductId.Size = new Size(179, 23);
+            TxtProductId.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(13, 14);
+            label3.Name = "label3";
+            label3.Size = new Size(72, 17);
+            label3.TabIndex = 0;
+            label3.Text = "Product Id";
+            // 
+            // BtnSaveP
+            // 
+            BtnSaveP.Location = new Point(55, 259);
+            BtnSaveP.Name = "BtnSaveP";
+            BtnSaveP.Size = new Size(62, 55);
+            BtnSaveP.TabIndex = 8;
+            BtnSaveP.UseVisualStyleBackColor = true;
+            // 
+            // BtnCancelP
+            // 
+            BtnCancelP.Location = new Point(166, 261);
+            BtnCancelP.Name = "BtnCancelP";
+            BtnCancelP.Size = new Size(62, 55);
+            BtnCancelP.TabIndex = 9;
+            BtnCancelP.UseVisualStyleBackColor = true;
             // 
             // ProductView
             // 
@@ -297,7 +324,6 @@
             Controls.Add(panel1);
             Name = "ProductView";
             Text = "ProductView";
-            Load += ProductView_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -322,10 +348,10 @@
         private TextBox TxtSearchS;
         private Label label2;
         private DataGridView DgProduct;
-        private Button BtnClose;
-        private Button BtnDelete;
-        private Button BtnEdit;
-        private Button BtnNew;
+        private Button BtnCloseP;
+        private Button BtnDeleteP;
+        private Button BtnEditP;
+        private Button BtnNewP;
         private TextBox TxtProductName;
         private Label label4;
         private TextBox TxtProductId;
@@ -334,5 +360,7 @@
         private Label label6;
         private TextBox TxtPrice;
         private Label label5;
+        private Button BtnCancelP;
+        private Button BtnSaveP;
     }
 }
